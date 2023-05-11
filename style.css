@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Manrope;
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: hsl(210, 46%, 95%);
+}
+
+.card {
+    width: min(calc(100% - calc(2 * 2.5rem)), 750px);
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 215px 1fr;
+}
+
+.card .banner {
+    position: relative;
+}
+
+.card .banner[data-img="banner"]::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url(images/drawers.jpg) no-repeat;
+    background-size: cover;
+    filter: brightness(1.1) contrast(.9);
+}
+.card .txt__area {
+    margin: 3.2rem;
+}
+
+.card .txt__area .txt__title {
+    color: hsl(217, 19%, 35%);
+    font-size: 1.65rem;
+    margin-bottom: 2rem;
+}
+.card .txt__area .txt__description {
+    font-size: 1.32rem;
+    color: hsl(214, 17%, 51%);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* style for about author and share section */
+.card .aboutNshare .about__author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-inline: 3.2rem;
+    margin-bottom: 3rem;
+}
+
+.card .aboutNshare .about__author .author__pic[data-img="author__pic"]::before {
+    --wNh: 40px;
+    content: '';
+    width: var(--wNh);
+    height: var(--wNh);
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    background: url(images/avatar-michelle.jpg) no-repeat;
+    background-size: cover;
+}
+.card .aboutNshare .about__author .author__name {
+    color: hsl(217, 19%, 35%);
+    margin-left: -2.5rem;
+}
+.card .aboutNshare .about__author .author__name .published__date{
+    color: hsl(214, 17%, 51%);
+    display: block;
+    font-weight: 500;
+}
+
+.card .aboutNshare .share__btn[data-icon="share__icon"]{
+    padding: 1.6rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card .aboutNshare .about__author .share__btn[data-icon="share__icon"] {
+    background: hsl(210, 46%, 95%) url(images/icon-share.svg) no-repeat 50% 45%;
+}
+
+.card .aboutNshare .share__section{
+    padding-inline: 3.2rem;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: hsl(217, 19%, 35%);
+}
+
+.card .aboutNshare .share__section .share__title {
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: hsl(212, 23%, 69%);
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+.card .aboutNshare .share__section [data-icon="fb__icon"]::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 35%;
+    margin-left: -1.5rem;
+    background: url(images/icon-facebook.svg) no-repeat;
+}
+.card .aboutNshare .share__section [data-icon="twitter__icon"]::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 38%;
+    margin-left: -.5rem;
+    background: url(images/icon-twitter.svg) no-repeat;
+}
+.card .aboutNshare .share__section [data-icon="pinInterest__icon"]::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 35%;
+    background: url(images/icon-pinterest.svg) no-repeat;
+}
+.card .aboutNshare .share__section .share__btn[data-icon="share__icon"] {
+    background: hsl(214, 17%, 51%) url(images/icon-share_co.svg) no-repeat 50% 45%;
+    margin-left: 4.5rem;
+}
+/* for hiding */
+.card .aboutNshare .hidden {
+    display: none;
+}
+
+/* styling for desktop */
+@media screen and (min-width: 800px) {
+    .card{
+        grid-template-columns: 275px 1fr;
+        grid-template-rows: auto;
+        overflow: visible;
+    }
+    .card .banner[data-img="banner"]::before{
+        background-size: 122% 100%;
+        background-position: left;
+    }
+    .card .txt__section {
+        margin-inline: 1.5rem 2.25rem;
+    }
+    .card .txt__area .txt__title {
+        font-size: 2.2rem;
+    }
+    .card .aboutNshare .about__author .author__name {
+        margin-left: -12.5rem;
+    }
+    .card .aboutNshare {
+        position: relative;
+        margin-top: -1rem;
+    }
+    .card .aboutNshare .share__section {
+        position: absolute;
+        justify-content: space-evenly;
+        width: 60%;
+        height: 5rem;
+        top: -250%;
+        right: -20%;
+        border-radius: 1rem;
+        padding: 0;
+    }
+    .card .aboutNshare .share__section::after{
+        content: '';
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: -10%;
+        border-top-left-radius: 100%;
+        transform: rotate(45deg) ;
+        background-color: hsl(217, 19%, 35%);
+    }
+    .card .aboutNshare .share__section .share__btn[data-icon="share__icon"] {
+        display: none;
+    }
+}
